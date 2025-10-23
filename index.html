@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Генератор фото-промтов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="page__header">
+        <div class="page__headline">
+          <h1>Конструктор фото-промтов</h1>
+          <p>
+            Соберите описательный запрос для генераторов изображений, комбинируя
+            готовые элементы и добавляя свои идеи.
+          </p>
+        </div>
+        <div class="template-picker">
+          <label class="template-picker__label" for="templateSelector">
+            Тип сцены
+          </label>
+          <select id="templateSelector" class="template-picker__select">
+          </select>
+        </div>
+      </header>
+
+      <main class="page__main">
+        <section class="template-info" aria-live="polite">
+          <h2 id="templateTitle"></h2>
+          <p id="templateDescription"></p>
+        </section>
+
+        <section class="fields" aria-label="Поля конструктора">
+          <div id="fieldsContainer" class="fields__grid"></div>
+        </section>
+
+        <section class="extra">
+          <label for="extraInput">Дополнительное описание</label>
+          <textarea
+            id="extraInput"
+            placeholder="Например: ultra detailed, hyperrealistic portrait"
+            rows="3"
+          ></textarea>
+        </section>
+
+        <section class="actions" aria-label="Действия">
+          <button id="randomButton" type="button" class="button button--ghost">
+            Случайный промт
+          </button>
+          <button id="clearButton" type="button" class="button button--ghost">
+            Очистить
+          </button>
+          <button id="copyButton" type="button" class="button button--primary">
+            Скопировать промт
+          </button>
+          <div class="copy-toast" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="preview" aria-label="Собранный промт">
+          <header class="preview__header">
+            <h2>Итоговый промт</h2>
+            <span id="symbolsCounter" class="preview__counter"></span>
+          </header>
+          <textarea id="promptOutput" readonly rows="4"></textarea>
+          <div id="piecesList" class="preview__pieces"></div>
+        </section>
+      </main>
+
+      <footer class="page__footer">
+        <p>
+          Страница подготовлена для быстрой сборки промтов по мотивам шаблонов
+          из таблицы. Проект можно разместить на GitHub Pages и делиться ссылкой
+          с коллегами.
+        </p>
+      </footer>
+    </div>
+    <script src="script.js" defer></script>
+  </body>
+</html>
